@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "neverlose",
+  "version": "${version}",
+  "name": "Neverlose GUI",
+  "description": "A pink-themed in-game GUI shell for Minecraft 1.21.10",
+  "authors": ["neverlose"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.neverlose.client.NeverloseClient"
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api": "*",
+    "minecraft": "1.21.10",
+    "java": ">=21"
+  }
+}
