@@ -19,8 +19,16 @@ public class Module {
     }
 
     public boolean isEnabled() { return enabled; }
-    public void setEnabled(boolean enabled) { this.enabled = enabled; }
-    public void toggle() { this.enabled = !this.enabled; }
+
+    public void setEnabled(boolean enabled) {
+        if (this.enabled == enabled) return;
+        this.enabled = enabled;
+        com.neverlose.client.module.ModuleManager.onModuleStateChanged(this, enabled);
+    }
+
+    public void toggle() {
+        setEnabled(!enabled);
+    }
 
     // ── Setting types ──────────────────────────────────────────────
 
@@ -65,5 +73,10 @@ public class Module {
 
     // ── Category ──────────────────────────────────────────────────
 
-    public enum Category { VISUALS }
+    public enum Category {
+        RAGE,
+        LEGIT,
+        VISUALS,
+        MISC
+    }
 }

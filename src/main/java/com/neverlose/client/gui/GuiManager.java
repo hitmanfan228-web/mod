@@ -15,17 +15,27 @@ public class GuiManager {
     public void setCurrentTab(Tab tab) { this.currentTab = tab; }
 
     public enum Tab {
-        VISUALS("Visuals", "👁"),
-        AUTOMATION("Scripts", "⚙"),
-        ACTIVE("Active", "✦"),
-        SETTINGS("Settings", "📄");
+        RAGE("Rage", "⚡", 0xFFFF8A3D),
+        LEGIT("Legit", "◎", 0xFFE05A7A),
+        VISUALS("Visuals", "👁", 0xFF8A8A9A),
+        SCRIPTS("Scripts", "⚙", 0xFF8A8A9A),
+        MISC("Misc", "✦", 0xFFE05A7A),
+        SETTINGS("Settings", "⚙", 0xFF8A8A9A);
+
+        public static final Tab[] SIDEBAR = { RAGE, LEGIT, VISUALS, SCRIPTS, MISC };
 
         public final String label;
         public final String icon;
+        public final int iconColor;
 
-        Tab(String label, String icon) {
+        Tab(String label, String icon, int iconColor) {
             this.label = label;
             this.icon = icon;
+            this.iconColor = iconColor;
+        }
+
+        public boolean isSidebarTab() {
+            return this != SETTINGS;
         }
     }
 }
